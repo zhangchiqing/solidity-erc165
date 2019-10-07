@@ -1,8 +1,9 @@
 pragma solidity 0.5.8;
 
 import "./StoreInterface.sol";
+import "./ERC165/ERC165.sol";
 
-contract Store is StoreInterface {
+contract Store is ERC165, StoreInterface {
   uint256 internal value;
 
   function setValue(uint256 v) external {
@@ -13,12 +14,8 @@ contract Store is StoreInterface {
     return value;
   }
 
-  function supportMethod(bytes4 methodId) external view returns (bool) {
-    StoreInterface i;
-    return methodId == i.getValue.selector || methodId == i.setValue.selector;
-  }
-
-  function supportInterface(bytes4 interfaceId) external view returns (bool) {
-    return interfaceId == INTERFACE_ID_STORE;
+  function supportsInterface(bytes4 interfaceId) external view returns (bool) {
+    return interfaceId == 0x01ffc9a7 ||
+           interfaceId == STORE_INTERFACE_ID;
   }
 }

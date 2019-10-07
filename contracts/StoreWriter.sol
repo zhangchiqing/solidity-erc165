@@ -3,7 +3,7 @@ pragma solidity 0.5.8;
 import "./StoreInterface.sol";
 import "./ERC165/ERC165Query.sol";
 
-contract StoreReader is StoreInterfaceId, ERC165Query {
+contract StoreWriter is StoreInterfaceId, ERC165Query {
   StoreInterface store;
 
   function setStore(address storeAddress) external {
@@ -12,9 +12,9 @@ contract StoreReader is StoreInterfaceId, ERC165Query {
     store = StoreInterface(storeAddress);
   }
 
-  function readStoreValue() external view returns (uint256) {
-    require(store != StoreInterface(0), "Empty store");
+  function writeStoreValue(uint256 v) external {
+    require(store != StoreInterface(0), "empty store");
 
-    return store.getValue();
+    return store.setValue(v);
   }
 }

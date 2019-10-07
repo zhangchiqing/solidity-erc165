@@ -1,7 +1,7 @@
 {
   "name": "solidity-erc165",
   "version": "1.0.0",
-  "description": "",
+  "description": "An example to show how ERC165 works",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -14,8 +14,8 @@
     "type": "git",
     "url": "git+https://github.com/zhangchiqing/solidity-erc165.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Leo Zhang (zhangchiqing@gmail.com)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zhangchiqing/solidity-erc165/issues"
   },
