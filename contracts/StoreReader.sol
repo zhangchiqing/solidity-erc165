@@ -6,15 +6,13 @@ import "./ERC165/ERC165Query.sol";
 contract StoreReader is StoreInterfaceId, ERC165Query {
   StoreInterface store;
 
-  function setStore(address storeAddress) external {
+  constructor (address storeAddress) public {
     require(doesContractImplementInterface(storeAddress, STORE_INTERFACE_ID), "Doesn't support StoreInterface");
 
     store = StoreInterface(storeAddress);
   }
 
   function readStoreValue() external view returns (uint256) {
-    require(store != StoreInterface(0), "Empty store");
-
     return store.getValue();
   }
 }
