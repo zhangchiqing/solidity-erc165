@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/zhangchiqing/solidity-erc165#readme",
   "dependencies": {
-    "truffle": "5.0.37"
+    "truffle": "5.7.9"
   }
 }
